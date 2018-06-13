@@ -1,6 +1,13 @@
 require 'pg'
+require 'io/console'   
 require_relative '../setting'
 
+                                                                                                    
+#def continue                                                                                                          
+ # print "press any key to commit"                                                                                                    
+ # STDIN.getch                                                                                                              
+ # print "            \r" # extra space to overwrite in case next sentence is short                                                                                                              
+# end  
 
 begin
 
@@ -18,6 +25,11 @@ begin
 		rs = con.exec "delete from notificationfilters where pipeline in (select name from pipelines where name='#{ENV['PIPELINE_NAME']}');"
 		rs = con.exec "delete from pipelinelabelcounts where pipelinename in (select name from pipelines where name='#{ENV['PIPELINE_NAME']}');"
 		rs = con.exec "delete from pipelines where name='#{ENV['PIPELINE_NAME']}';"
+
+    confirm_token = rand(36**6).to_s(36)
+    STDOUT.puts "Enter '#{confirm_token}' to confirm deletion."
+    input = STDIN.gets.chomp
+    raise "Aborting [DELETE ACTION]. You entered #{input}" unless input == confirm_token      
 
 		rs = con.exec "commit;"
 
