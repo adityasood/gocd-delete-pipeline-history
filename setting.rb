@@ -1,5 +1,5 @@
-@dbhost='127.0.0.1'
+@dbhost='<db_IP_address>'
 @dbport=5432
-@database='cruise'
-@dbuser='postgres'
-@dbpassword='postgres'
+@database='<gocd_database_name>'
+@dbuser='<username>'
+@dbpassword='<password>'
