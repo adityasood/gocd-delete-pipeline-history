@@ -1,6 +1,6 @@
 require 'pg'
 require_relative '../setting'
-## conn=PGconn.connect( :hostaddr=>"127.0.0.1", :port=>5432, :dbname=>"cruise", :user=>"postgres", :password=>'postgres')
+
 
 begin
 
