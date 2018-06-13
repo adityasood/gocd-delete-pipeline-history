@@ -9,7 +9,15 @@ This utility helps to delete pipeline history from GoCD database for the deleted
 
 # Requirement:
 
+Add database details in setting.rb file.
 
+```
+@dbhost='127.0.0.1'
+@dbport=5432
+@database='gocd_database_name'
+@dbuser='postgres_user'
+@dbpassword='password'
+```
 
 # Limitation:
  - Doesn't work for dependent pipelines. You will need to remove pipeline dendency and then delete pipeline from UI.
